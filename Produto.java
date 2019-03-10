@@ -115,7 +115,7 @@ public class Produto {
                 "\nNome do Produto "+this.nomePro+
                 "\nDescrição "+this.descricao+
                 "\nPreço: "+this.preco;
-    }
+    }//end toString()
     
 }//end class Produto
 
