@@ -18,7 +18,7 @@ public class ServiceCrud {
 
     /*
 *Construtor da classe
-*@param instancia de RAF com o arquivo aberto
+*@param instancia de RAF com o arquivo Aberto
 * */
     public ServiceCrud(RandomAccessFile arq) {
         this.arq = arq;
