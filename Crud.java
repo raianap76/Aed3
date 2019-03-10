@@ -78,3 +78,4 @@ public class Crud {
         }
     }//end main()
 }
+//Observação : Falta adicionar dois atributos a classe Produto
