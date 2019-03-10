@@ -25,7 +25,7 @@ public class ServiceCrud {
     }
 
     /*
-	 * Escreve o Produtono arquivo
+	 * Escreve o Produto no arquivo
 	 * @param uma instancia de Produto a ser gravada
 	 * @param id do Produto a ser gravado
 	 * */
