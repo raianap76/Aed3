@@ -176,8 +176,8 @@ public class ServiceCrud {
     }//end searchPointer()
 
     /*
-	 * Cria um objeto de filme com as informacoes da entrada
-	 * @return uma instancia de Filme criada
+	 * Cria um objeto de Produto com as informacoes da entrada
+	 * @return uma instancia de Produto criada
 	 * */
 	public static Produto criarObjetoProduto(){
 		Scanner input = new Scanner(System.in);
@@ -200,5 +200,5 @@ public class ServiceCrud {
 			produto = new Produto(nome,descricao,preco);
 		}	
 		return produto; 
-	}//end criarObjetoFilme()
+	}//end criarObjetoProduto()
 }
