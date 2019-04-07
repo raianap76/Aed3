@@ -1,4 +1,3 @@
-
 package relacaoumparan;
 
 /**
@@ -93,12 +92,12 @@ public class RelacaoUmParaN {
                     }
                 } else if (choice == 2) {
                     while (choice != -1) {
-                        System.out.println("-------------------------------------\nMenu de Produtos:\n"
+                        System.out.println("-------------------------------------\nMenu de Categoria:\n"
                                 + "0 - Voltar;\n"
-                                + "1 - Inserir Produto;\n"
-                                + "2 - Alterar Produto;\n"
-                                + "3 - Excluir Produto;\n"
-                                + "4 - Consultar Produto;\n-----------------------------------");
+                                + "1 - Inserir Categoria;\n"
+                                + "2 - Alterar Categoria;\n"
+                                + "3 - Excluir Categoria;\n"
+                                + "4 - Consultar Categoria;\n-----------------------------------");
                         choice = input.nextInt();
                         switch (choice) {
                             case 0:
@@ -136,9 +135,8 @@ public class RelacaoUmParaN {
     /**
      * Cria a categoria
      *
-     * @param id da categoria a ser criado
-     * @param nome da categoria a ser criado
-	 *
+     * @param idCat da categoria a ser criado
+     *
      */
     public static void createCat(int idCat) {
         input = new Scanner(System.in);
@@ -171,7 +169,7 @@ public class RelacaoUmParaN {
 
     /**
      * Altera uma categoria existente
-	 *
+     *
      */
     public static void updateCat() {
         input = new Scanner(System.in);
@@ -197,7 +195,7 @@ public class RelacaoUmParaN {
 
     /**
      * Deleta uma categoria existente
-	 *
+     *
      */
     public static void deleteCat() {
         input = new Scanner(System.in);
@@ -224,7 +222,7 @@ public class RelacaoUmParaN {
 
     /**
      * Consulta a existencia de uma categoria
-	 *
+     *
      */
     public static void readCat() {
         input = new Scanner(System.in);
@@ -258,7 +256,7 @@ public class RelacaoUmParaN {
      *
      * @param id da categoria a ser procurada
      * @return ponteiro para a posicao da categoria no arquivo
-	 *
+     *
      */
     public static long searchCatPointer(int id) {
         int idLido;
@@ -293,7 +291,7 @@ public class RelacaoUmParaN {
      * Lista os produtos de uma categoria
      *
      * @param ID da categoria desejada
-	 *
+     *
      */
     public static void listaProdutos(int categoria) {
         try {
@@ -327,7 +325,7 @@ public class RelacaoUmParaN {
      *
      * @param ID do produto desejado
      * @return <code>true</code> se existir produtos e false se nao existir
-	 *
+     *
      */
     private static boolean isEmpty(int idCat) {
         boolean resp = true;
@@ -343,8 +341,8 @@ public class RelacaoUmParaN {
 
                 Produto produto = new Produto();
                 produto.setByteArray(array);
-                if(produto.getIDCategoria() == idCat && aux != '*') {
-					resp = false;
+                if (produto.getIDCategoria() == idCat && aux != '*') {
+                    resp = false;
                 }
             }
         } catch (IOException e) {
@@ -358,7 +356,7 @@ public class RelacaoUmParaN {
      *
      * @param categoria a ser pesquisada
      * @return true se ja existir ou false se nao existir
-	 *
+     *
      */
     public static boolean searchCat(String categoria) {
         boolean resp = false;
@@ -388,7 +386,7 @@ public class RelacaoUmParaN {
      *
      * @param ID da categoria a ser pesquisada
      * @return true se existir categoria com esse ID e false se nao existir
-	 *
+     *
      */
     public static boolean searchCat(int categoria) {
         boolean resp = false;
@@ -471,7 +469,7 @@ public class RelacaoUmParaN {
      * Altera as informacoes do produto selecionado
      *
      * @param id do produto a ser alterado
-	 *
+     *
      */
     public static void update(int id) {
         long pointArq = searchPointer(id);
@@ -496,7 +494,7 @@ public class RelacaoUmParaN {
      * Pesquisa as informacoes de um produto no arquivo
      *
      * @param id do produto a ser pesquisado
-	 *
+     *
      */
     public static void read(int id) {
         long pointerArq = searchPointer(id);
@@ -535,7 +533,7 @@ public class RelacaoUmParaN {
      *
      * @param id do registro cujo ponteiro eh desejado
      * @return ponteiro do registro desejado
-	 *
+     *
      */
     private static long searchPointer(int id) {
         int idLido;
@@ -564,7 +562,8 @@ public class RelacaoUmParaN {
 	 * */
     public static Produto criarObjetoProduto() {
         Scanner input = new Scanner(System.in);
-        String nome, descricao,fabricante,fornecedor;
+        String nome, descricao,fabricante;
+        String fornecedor;
         float preco;
         boolean existe = false;
         int idCat = -1;
@@ -576,15 +575,17 @@ public class RelacaoUmParaN {
 
         System.out.print("Descrição: ");
         descricao = input.nextLine();
-
-        System.out.print("Preço do produto: ");
-        preco = input.nextFloat();
         
         System.out.print("Fabricante: ");
         fabricante = input.nextLine();
         
+       
+
         System.out.print("Fornecedor: ");
         fornecedor = input.nextLine();
+        
+         System.out.print("Preço do produto: ");
+        preco = input.nextFloat();
 
         while (!existe) {
             System.out.print("Digite o ID da categoria: ");
@@ -597,7 +598,7 @@ public class RelacaoUmParaN {
 
         System.out.print("Insira 1 para confirma inclusão ou 0 para cancelar: ");
         if (input.nextByte() == 1) {
-            produto = new Produto(nome, descricao, preco,fabricante,fornecedor,idCat);
+            produto = new Produto(nome, descricao, preco, fabricante, fornecedor, idCat);
         }
         return produto;
 
@@ -608,7 +609,7 @@ public class RelacaoUmParaN {
      *
      * @param id da categoria a ser procurada
      * @return posicao do registro no arquivo
-	 *
+     *
      */
     private static long searchIndex(int id) {
         long address = -1;
@@ -637,7 +638,7 @@ public class RelacaoUmParaN {
      *
      * @return true se existir pelo menos 1 genero valido ou false se nao
      * existir nenhum
-	 *
+     *
      */
     public static boolean hasCat() {
         boolean resp = false;
