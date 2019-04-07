@@ -23,7 +23,7 @@ public class RelacaoUmParaN {
         System.out.println("Bem-vindo ao CRUD de produtos!");
         try {
             index = new RandomAccessFile("index.db", "rw");
-            arq = new RandomAccessFile("filme.db", "rw");
+            arq = new RandomAccessFile("produto.db", "rw");
             cat = new RandomAccessFile("categorias.db", "rw");
 
             int id;
